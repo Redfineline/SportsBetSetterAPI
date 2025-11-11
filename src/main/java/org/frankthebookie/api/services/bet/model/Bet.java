@@ -1,13 +1,25 @@
 package org.frankthebookie.api.services.bet.model;
 
+import java.util.UUID;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 public class Bet {
 
     /**
-     * Bet Id.
+     * Bet Id for TeamA.
      */
-    private int betId;
+    private int betIdTeamA;
+
+    /**
+     * Bet Id for TeamB.
+     */
+    private int betIdTeamB;
+
+    /**
+     * Game ID
+     */
+    private UUID gameId;
 
     /**
      * Team A.
@@ -33,13 +45,33 @@ public class Bet {
      */
     private int oddsB;
 
-    // ---- ID ----
-    public int getBetId() {
-        return betId;
+
+
+    public UUID getGameId() {
+        return gameId;
     }
 
-    public void setBetId(int betId) {
-        this.betId = betId;
+    public void setGameId(UUID id) {
+        this.gameId = id;
+    }
+
+
+    // ---- ID ----
+    public int getBetIdTeamA() {
+        return betIdTeamA;
+    }
+
+    public void setBetIdTeamA(int betId) {
+        this.betIdTeamA = betId;
+    }
+
+        // ---- ID ----
+    public int getBetIdTeamB() {
+        return betIdTeamB;
+    }
+
+    public void setBetIdTeamB(int betId) {
+        this.betIdTeamB = betId;
     }
 
     // ---- Team A ----

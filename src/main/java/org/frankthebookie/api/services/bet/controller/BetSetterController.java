@@ -19,6 +19,7 @@
 package org.frankthebookie.api.services.bet.controller;
 
 import java.util.Collection;
+import java.util.UUID;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
@@ -74,7 +75,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(BetSetterController
 	 * @return the bet
 	 */
 	@GetMapping("/{id}")
-	public Bet findBetById(@PathVariable int id) {
+	public Bet findBetById(@PathVariable UUID id) {
 		return repository.findById(id)
 				.orElseThrow(() -> new BetNotFoundException());
 	}
@@ -140,7 +141,7 @@ private static final Logger LOGGER = LoggerFactory.getLogger(BetSetterController
 	public Bet headBet() {
 		
 		for (Bet item : repository.getBets()) {
-			LOGGER.info("The following Bets reported to user {}", item.getBetId());	
+			LOGGER.info("The following Bets reported to user {}", item.getBetIdTeamA());	
 			return item;
 			}
 		return null;

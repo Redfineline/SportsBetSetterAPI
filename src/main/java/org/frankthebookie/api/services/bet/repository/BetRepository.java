@@ -22,22 +22,22 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.frankthebookie.api.services.bet.model.Bet;
-///import org.frankthebookie.api.services.bet.model.Book;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class BetRepository {
 
-	private Map<Integer, Bet> bets = new HashMap<>();
+	private Map<UUID, Bet> bets = new HashMap<>();
 
-	public Optional<Bet> findById(int id) {
+	public Optional<Bet> findById(UUID id) {
 		return Optional.ofNullable(bets.get(id));
 	}
 
 	public void add(Bet bet) {
-		bets.put(bet.getBetId(), bet);
+		bets.put(bet.getGameId(), bet);
 	}
 
 	public Collection<Bet> getBets() {
